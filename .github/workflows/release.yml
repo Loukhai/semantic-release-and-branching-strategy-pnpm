@@ -1,0 +1,53 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+      - "feat/*"
+
+permissions:
+  contents: write # Required for creating GitHub releases
+  issues: write # Allows commenting on related issues
+  pull-requests: write # Allows commenting on related pull requests
+
+jobs:
+  release:
+    name: Semantic Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # - name: Read pnpm version from package.json
+      #   id: pnpm_version
+      #   run: echo "pnpm=$(jq -r '.engines.pnpm' package.json)" >> $GITHUB_ENV
+
+      # - name: pnpm actions setup
+      #   uses: pnpm/action-setup@v2
+      #   with:
+      #     version: ${{ env.pnpm }}
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: "latest" # Dynamically aligned with the latest pnpm version
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+          cache: "pnpm" # Enable pnpm dependency caching
+
+      - name: Install dependencies with pnpm
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify pnpm installation
+        run: pnpm --version
+
+      - name: Run Semantic Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: pnpm run release
