@@ -1,6 +1,6 @@
 {
   "branches": [
-    "master",
+    { "name": "master" },
     {
       "name": "develop",
       "prerelease": true
