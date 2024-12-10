@@ -1,13 +1,13 @@
 {
   "branches": [
-    "master",
+    { "name": "master" },
     {
       "name": "develop",
       "prerelease": true
     },
     {
       "name": "feat/*",
-      "prerelease": true
+      "prerelease": "feature"
     }
   ],
   "plugins": [
