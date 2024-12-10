@@ -1,7 +1,13 @@
- 
 # 📜 Changelog
 
 All notable changes to this project will be documented here.
+
+## 📦 Version 1.2.0 - 2024-12-10
+
+
+### ✨ Features
+
+* enhance quality of generating release ([9d65e31](https://github.com/Loukhai/semantic-release-and-branching-strategy-pnpm/commit/9d65e31df0434a0f55c5ae4ec2b01c269b2c3a21))
 
 ## 📦 Version 1.1.0-beta.1 - 2024-12-10
 
