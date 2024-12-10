@@ -3,11 +3,11 @@
     { "name": "master" },
     {
       "name": "develop",
-      "prerelease": true
+      "prerelease": "beta"
     },
     {
       "name": "feat/*",
-      "prerelease": "feature"
+      "prerelease": "next"
     }
   ],
   "plugins": [
@@ -24,7 +24,9 @@
           { "type": "style", "release": false },
           { "type": "refactor", "release": false },
           { "type": "test", "release": false },
-          { "type": "chore", "release": false }
+          { "type": "chore", "release": false },
+          { "type": "ci", "release": false },
+          { "type": "build", "release": false }
         ],
         "parserOpts": {
           "noteKeywords": ["BREAKING CHANGE", "BREAKING CHANGES"]
@@ -36,13 +38,26 @@
       {
         "preset": "conventionalcommits",
         "writerOpts": {
-          "headerPartial": "## 📦 Version {{version}} - {{date}}\n\n"
+          "headerPartial": "## 📦 Version {{version}} - {{date}}\n\n",
+          "commitGroupsSort": "title",
+          "commitsSort": ["scope", "subject"],
+          "groupBy": "type",
+          "noteGroupsSort": "title"
+        },
+        "presetConfig": {
+          "types": [
+            { "type": "feat", "section": "✨ Features" },
+            { "type": "fix", "section": "🐛 Bug Fixes" },
+            { "type": "perf", "section": "⚡ Performance Improvements" },
+            { "type": "BREAKING CHANGE", "section": "🚨 Breaking Changes" }
+          ]
         }
       }
     ],
     [
       "@semantic-release/changelog",
       {
+        "changelogTitle": "# 📜 Changelog\n\nAll notable changes to this project will be documented here.",
         "changelogFile": "CHANGELOG.md"
       }
     ],
@@ -64,6 +79,10 @@
           {
             "path": "dist/*.css",
             "label": "CSS Distribution"
+          },
+          {
+            "path": "dist/project-name-v${nextRelease.version}.zip",
+            "label": "Complete Build (ZIP)"
           }
         ]
       }
