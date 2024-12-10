@@ -1,3 +1,10 @@
+## 📦 Version 1.1.0-develop.1 - 2024-12-10
+
+
+### Features
+
+* add checking type ([68d5ac9](https://github.com/Loukhai/semantic-release-and-branching-strategy-pnpm/commit/68d5ac9c126a2429aa20306044efda85e0868633))
+
 ## 📦 Version 1.1.0-feature.1 - 2024-12-10
 
 
