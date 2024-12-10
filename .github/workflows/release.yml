@@ -48,7 +48,7 @@ jobs:
         run: pnpm --version
 
       - name: Run Semantic Release
-        if: github.ref == 'refs/heads/main' # Only run on main branch
+        if: github.ref == 'refs/heads/master' # Only run on main branch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: pnpm run release
