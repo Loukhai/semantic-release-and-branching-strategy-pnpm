@@ -1,4 +1,4 @@
-console.log("hello");
+console.log("hello loukhai");
 
 function add(a, b) {
   if (typeof a !== "number" || typeof b !== "number")
