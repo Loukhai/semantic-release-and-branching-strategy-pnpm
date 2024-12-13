@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented here.
 
+## 📦 Version 1.3.0 - 2024-12-13
+
+
+### ✨ Features
+
+* add hello console ([6436eb0](https://github.com/Loukhai/semantic-release-and-branching-strategy-pnpm/commit/6436eb021077d7743bd4ef498378a355666f17fb))
+
 ## 📦 Version 1.2.0 - 2024-12-10
 
 
